@@ -1,3 +1,38 @@
-<h2>Olympic games app</h2>
-<hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
+
+<div>
+  <div style="display: flex; justify-content: center;">
+    <h1 style="text-align: center; padding: 10px 20px; background-color: #00838e; border-radius: 10px; color: white;"> Medals per Country </h1>
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <div *ngFor="let item of subTitles" style="display: flex; flex-direction: column; align-items: center;margin: 0px 30px ; padding: 0px 10px; border: 3px solid #00838e; border-radius: 15px;">
+      <h2 style="color: grey; height: 10px;">{{item.name}}</h2>
+      <p style="font-weight: bold;">{{item.value}}</p>
+    </div>
+  </div>
+</div>
+<div>
+<ng-container *ngIf="asyncFlag">
+  <ngx-charts-pie-chart
+  [view]="view"
+  [results]="data"
+  [gradient]="gradient"
+  [legend]="showLegend"
+  [labels]="showLabels"
+  [doughnut]="isDoughnut"
+  [arcWidth]="0"
+  (select)="onSelect($event)"
+  (window:resize)="onResize($event)"
+  [maxLabelLength]="100"
+  >
+<ng-template #tooltipTemplate let-model="model">
+  <div style="width: 50px">     
+    <p style="font-size: large;">{{ model.name }}</p>
+    <div style="display: flex">
+      <img src="./assets/icon/trophy.svg" alt="trophy" style="width: 30px"/>
+      <p> {{ model.value }}</p>
+    </div>
+  </div>
+</ng-template>
+</ngx-charts-pie-chart>
+</ng-container>
+</div>
