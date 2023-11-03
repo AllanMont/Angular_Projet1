@@ -1,29 +1,27 @@
-# OlympicGamesStarter
+# OlympicGames
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+Ce projet est une application Angular conçue pour afficher des informations sur les Jeux olympiques, y compris le nombre de médailles par pays. Il s'agit d'une collaboration avec TéléSport pour accompagner ses reportages sur les Jeux olympiques.
 
-Don't forget to install your node_modules before starting (`npm install`).
+## Installation
 
-## Development server
+Assurez-vous d'avoir Node.js et Angular CLI installés sur votre machine. Si ce n'est pas le cas, vous pouvez les installer en suivant ces instructions :
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js : https://nodejs.org/
+- Angular CLI : https://angular.io/guide/setup-local
 
-## Build
+Après avoir installé Node.js et Angular CLI, suivez ces étapes pour installer et exécuter l'application :
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clonez ce référentiel depuis GitHub.
+2. Accédez au répertoire du projet.
+3. Installez les dépendances du projet en exécutant la commande suivante : npm install
 
-## Where to start
+## Utilisation
 
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
+Une fois les dépendances installées, vous pouvez lancer l'application avec la commande suivante : ng serve
 
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
+L'application sera disponible à l'adresse `http://localhost:4200/` dans votre navigateur.
 
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
+## Fonctionnalités
 
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
-
-You're now ready to implement the requested features.
-
-Good luck!
+- Dashboard : Page d'accueil affichant une vue globale des pays avec leurs médailles remportées.
+- Detail : Cette page s'affiche lors d'un clic sur un pays dans le dashboard, affichant en detail les informations de celui-ci.
