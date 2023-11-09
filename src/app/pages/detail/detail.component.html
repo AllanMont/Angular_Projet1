@@ -1,0 +1,23 @@
+<app-app-title [title]="'Medals per Country'" [subTitles]="subTitles"></app-app-title>
+
+<div class="d-center">
+  <ng-container *ngIf="asyncFlag">
+    <ngx-charts-line-chart
+    [view]="view"
+    [legend]="false"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [xAxisLabel]="'Dates'"
+    [yAxisLabel]="'Medals'"
+    [timeline]="true"
+    [results]="countryData"
+    (window:resize)="onResize($event)"
+    >
+  </ngx-charts-line-chart>
+</ng-container>
+
+<button class="btn-back" (click)="back()">Back</button>
+
+</div>

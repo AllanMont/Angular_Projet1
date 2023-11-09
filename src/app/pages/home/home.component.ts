@@ -17,14 +17,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   public asyncFlag = false;
 
   public view:[number, number] = [500, 500];
-  public data : {name:string, value: number}[] = [];
+  public data : {name:string, id: number, value: number}[] = [];
   public gradient = false;
   public showLegend = false;
   public showLabels = true;
   public isDoughnut = false;
 
   constructor(private olympicService: OlympicService, private router: Router) {
-    this.view = [innerWidth / 1.1, 600];
+    this.view = [innerWidth, 600];
   }
 
 
@@ -35,16 +35,14 @@ export class HomeComponent implements OnInit, OnDestroy {
         if (data) {
           let infoJOs: { year: number; city: string; }[] = [];
           data.forEach((country: IOlympicCountry) => {
-            console.log(country)
             let numberOfMedals = 0
             country?.participations.forEach(participations => {
               numberOfMedals += participations.medalsCount;
-              // Vérification si l'année est déjà présente dans le tableau
               if(!infoJOs.some(infoJO => infoJO.year === participations.year)){
                 infoJOs.push({year : participations.year, city: participations.city})
               }
             });
-            this.data.push({name: country.country, value: numberOfMedals}); 
+            this.data.push({name: country.country, id: country.id, value: numberOfMedals}); 
           }
           );
           this.subTitles = [{name: 'Number of JOs', value: infoJOs.length },{ name: 'Number of countries', value: data.length} ];
@@ -59,7 +57,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onResize(event: UIEvent) {
     const w = event.target as Window; 
-    this.view = [w.innerWidth / 1.30, 500];
+    this.view = [w.innerWidth, 500];
   }
 
   ngOnDestroy(): void {

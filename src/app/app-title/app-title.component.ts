@@ -8,7 +8,7 @@ import { ISubTitle } from 'src/app/core/models/subTitle.model';
 })
 export class AppTitleComponent {
 
-  @Input() title = 'default title !';
+  @Input() title = 'Default title';
   @Input() subTitles: ISubTitle[] = [];
 
 }
