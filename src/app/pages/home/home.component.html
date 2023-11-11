@@ -1,3 +1,28 @@
-<h2>Olympic games app</h2>
-<hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
+
+<app-app-title [title]="'Medals per Country'" [subTitles]="subTitles"></app-app-title>
+
+<ng-container *ngIf="asyncFlag" >
+  <ngx-charts-pie-chart
+  [view]="view"
+  [results]="data"
+  [gradient]="gradient"
+  [legend]="showLegend"
+  [labels]="showLabels"
+  [doughnut]="isDoughnut"
+  [arcWidth]="0"
+  (select)="onSelect($event)"
+  (window:resize)="onResize($event)"
+  [maxLabelLength]="100"
+  >
+  <ng-template #tooltipTemplate style="background-color: #00838d" let-model="model">
+    <div class="container" >
+    <p class="container-title">{{ model.name }}</p>
+      <div class="container-content">
+        <img src="./assets/icon/trophy.svg" alt="trophy" class="container-trophy-icon" />
+        <p class="container-value">{{ model.value }}</p>
+      </div>
+    </div>
+  </ng-template>
+  </ngx-charts-pie-chart>
+  </ng-container>
+  

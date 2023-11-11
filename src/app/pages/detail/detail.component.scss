@@ -1,0 +1,19 @@
+.btn-back { 
+    color: #FFFFFF;
+    background-color: #00838d;
+    padding :10px;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer ;
+    margin-bottom: 30px; 
+    &:hover {
+      background-color: darken(#00838d, 10%) ;
+    }
+  }
+  
+  .d-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
