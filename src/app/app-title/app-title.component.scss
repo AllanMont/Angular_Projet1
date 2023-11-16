@@ -17,6 +17,13 @@
   .subtitles {
     display: flex;
     justify-content: center;
+<<<<<<< Updated upstream
+=======
+    
+    @media only screen and (max-width: 600px) {
+      flex-wrap: wrap;
+    }
+>>>>>>> Stashed changes
   }
   
   .subtitle {
@@ -28,13 +35,27 @@
     border: 3px solid #00838e;
     border-radius: 15px;
   
+    @media only screen and (max-width: 600px) {
+      margin: 10px 30px;
+      min-width: 70%;
+    }
+    
     h2 {
       color: grey;
       height: 10px;
     }
   
     .subtitle-value {
+<<<<<<< Updated upstream
+=======
+     
+>>>>>>> Stashed changes
       font-weight: bold;
+
+      @media only screen and (max-width: 600px) {
+        padding-top: 20px;
+      }
     }
   }
+  
   
