@@ -1,9 +1,11 @@
 .container {
-    width: 50px;
+  width: 100%;
+  max-width: 300px;
+  margin: 5px auto;
 }
 
 .container-title {
-  font-size: large;
+  font-size: 1.5rem;
 }
 
 .container-content {
