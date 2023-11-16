@@ -5,12 +5,12 @@
   <ngx-charts-pie-chart
   [view]="view"
   [results]="data"
-  [gradient]="gradient"
-  [legend]="showLegend"
-  [labels]="showLabels"
+  [gradient]="isGradient"
+  [legend]="isLegend"
+  [labels]="isLabels"
   [doughnut]="isDoughnut"
   [arcWidth]="0"
-  (select)="onSelect($event)"
+  (select)="onClick($event)"
   (window:resize)="onResize($event)"
   [maxLabelLength]="100"
   >

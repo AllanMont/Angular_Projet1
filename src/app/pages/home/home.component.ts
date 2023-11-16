@@ -18,9 +18,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public view:[number, number] = [500, 500];
   public data : {name:string, id: number, value: number}[] = [];
-  public gradient = false;
-  public showLegend = false;
-  public showLabels = true;
+  public isGradient = false;
+  public isLegend = false;
+  public isLabels = true;
   public isDoughnut = false;
 
   constructor(private olympicService: OlympicService, private router: Router) {
@@ -51,13 +51,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       });
   }
 
-  onSelect(event:{name:string}): void {
+  onClick(event:{name:string}): void {
     this.router.navigate([`./detail/${event.name}`]);
   }
 
   onResize(event: UIEvent) {
-    const w = event.target as Window; 
-    this.view = [w.innerWidth, 500];
+    const window = event.target as Window; 
+    this.view = [window.innerWidth, 500];
   }
 
   ngOnDestroy(): void {

@@ -60,8 +60,8 @@ export class DetailComponent implements OnInit, OnDestroy{
   }
 
   onResize(event: UIEvent) {
-    const w = event.target as Window; 
-    this.view = [w.innerWidth, 500];
+    const window = event.target as Window; 
+    this.view = [window.innerWidth , 500];
   }
   
  back() { 
