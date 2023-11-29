@@ -1,28 +1,28 @@
 
 <app-app-title [title]="'Medals per Country'" [subTitles]="subTitles"></app-app-title>
-
-<ng-container *ngIf="asyncFlag" >
-  <ngx-charts-pie-chart
-  [view]="view"
-  [results]="data"
-  [gradient]="isGradient"
-  [legend]="isLegend"
-  [labels]="isLabels"
-  [doughnut]="isDoughnut"
-  [arcWidth]="0"
-  (select)="onClick($event)"
-  (window:resize)="onResize($event)"
-  [maxLabelLength]="100"
-  >
-  <ng-template #tooltipTemplate style="background-color: #00838d" let-model="model">
-    <div class="container" >
-    <p class="container-title">{{ model.name }}</p>
-      <div class="container-content">
-        <img src="./assets/icon/trophy.svg" alt="trophy" class="container-trophy-icon" />
-        <p class="container-value">{{ model.value }}</p>
+<div style="display: flex; justify-content: center;">
+  <ng-container *ngIf="subTitles.length" >
+    <ngx-charts-pie-chart
+      [view]="view"
+      [results]="data"
+      [gradient]="isGradient"
+      [legend]="isLegend"
+      [labels]="isLabels"
+      [doughnut]="isDoughnut"
+      [arcWidth]="0"
+      (select)="onClick($event)"
+      (window:resize)="onResize($event)"
+      [maxLabelLength]="100"
+    >
+    <ng-template #tooltipTemplate style="background-color: #00838d" let-model="model">
+      <div class="container" >
+      <p class="container-title">{{ model.name }}</p>
+        <div class="container-content">
+          <img src="./assets/icon/trophy.svg" alt="trophy" class="container-trophy-icon" />
+          <p class="container-value">{{ model.value }}</p>
+        </div>
       </div>
-    </div>
-  </ng-template>
-  </ngx-charts-pie-chart>
+    </ng-template>
+    </ngx-charts-pie-chart>
   </ng-container>
-  
+</div>

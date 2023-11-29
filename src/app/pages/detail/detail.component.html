@@ -1,7 +1,7 @@
 <app-app-title [title]="'Medals per Country'" [subTitles]="subTitles"></app-app-title>
 
 <div class="d-center">
-  <ng-container *ngIf="asyncFlag">
+  <ng-container *ngIf="subTitles.length">
     <ngx-charts-line-chart
     [view]="view"
     [legend]="false"
