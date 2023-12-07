@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public isDoughnut = false;
 
   constructor(private olympicService: OlympicService, private router: Router) {
-    this.view = [innerWidth, 600];
+    this.view = [innerWidth/1.3, 600];
   }
 
 
