@@ -26,7 +26,7 @@ export class DetailComponent implements OnInit, OnDestroy{
     private olympicService: OlympicService, 
     private activatedRoute: ActivatedRoute,
     private router: Router) {
-    this.view = [innerWidth, 500];
+    this.view = [innerWidth/1.3, 500];
   }
 
   ngOnInit(): void {
