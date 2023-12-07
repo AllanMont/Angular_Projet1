@@ -16,6 +16,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
   public asyncFlag = false;
 
+  /**
+   * Propriétés qui contient les données à afficher dans le graphique.
+   */
   public view:[number, number] = [500, 500];
   public data : {name:string, id: number, value: number}[] = [];
   public isGradient = false;
@@ -27,7 +30,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.view = [innerWidth/1.3, 600];
   }
 
-
+  /**
+   * Appelé lors de l'initialisation du composant.
+   * Récupère les données olympiques, les traite et met à jour les propriétés du composant en conséquence.
+   */
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
     this.olympics$.pipe(takeUntil(this.unsubscribe$))
@@ -51,17 +57,28 @@ export class HomeComponent implements OnInit, OnDestroy {
       });
   }
 
+  /**
+   * Appelé lors du clic sur un élément du graphique.
+   * Redirige vers la page de détail du pays sélectionné.
+   */
   onClick(event:{name:string}): void {
     this.router.navigate([`./detail/${event.name}`]);
   }
 
+  /**
+   * Appelé lors du redimensionnement de la fenêtre.
+   * Met à jour la taille du graphique en conséquence.
+   */
   onResize(event: UIEvent) {
     const window = event.target as Window; 
     this.view = [window.innerWidth, 500];
   }
 
+  /**
+   * Appelé lors de la destruction du composant.
+   * Détruit le Subject unsubscribe$.
+   */
   ngOnDestroy(): void {
-    this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
 

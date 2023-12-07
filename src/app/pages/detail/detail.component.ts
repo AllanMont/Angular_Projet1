@@ -29,10 +29,12 @@ export class DetailComponent implements OnInit, OnDestroy{
     this.view = [innerWidth/1.3, 500];
   }
 
+  /**
+   * Appelé lors de l'initialisation du composant.
+   * Récupère les données olympiques, les traite et met à jour les propriétés du composant en conséquence.
+   */
   ngOnInit(): void {
-
     this.countryName = this.activatedRoute.snapshot.paramMap.get('countryName') ?? '';
-
 
     this.olympics$ = this.olympicService.getOlympics();
     this.olympics$.pipe(takeUntil(this.unsubscribe$))
@@ -58,17 +60,28 @@ export class DetailComponent implements OnInit, OnDestroy{
       });
   }
 
+  /**
+   * Appelé lors du redimensionnement de la fenêtre.
+   * Met à jour la taille du graphique en conséquence.
+   */
   onResize(event: UIEvent) {
     const window = event.target as Window; 
     this.view = [window.innerWidth , 500];
   }
   
- back() { 
+  /**
+   * Appelé lors du clic sur le bouton de retour.
+   * Redirige vers la page d'accueil.
+   */
+  back() { 
     this.router.navigate(['/']);
   }
 
+  /**
+   * Appelé lors de la destruction du composant.
+   * Détruit le Subject unsubscribe$.
+   */
   ngOnDestroy(): void {
-    this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
 }
