@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   private olympics$: Observable<IOlympicCountry[] | undefined> = of(undefined);
   public subTitles: ISubTitle[] = [];
   private unsubscribe$ = new Subject<void>();
-  public asyncFlag = false;
 
   /**
    * Propriétés qui contient les données à afficher dans le graphique.
@@ -52,7 +51,6 @@ export class HomeComponent implements OnInit, OnDestroy {
           }
           );
           this.subTitles = [{name: 'Number of JOs', value: infoJOs.length },{ name: 'Number of countries', value: data.length} ];
-          this.asyncFlag = true;
         }
       });
   }

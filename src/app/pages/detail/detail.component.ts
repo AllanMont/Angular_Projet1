@@ -14,7 +14,7 @@ export class DetailComponent implements OnInit, OnDestroy{
 
   public olympics$: Observable<IOlympicCountry[] | undefined> = of(undefined);
   private unsubscribe$ = new Subject<void>();
-  public asyncFlag = false;
+  public  = false;
 
   public view:[number, number] = [700, 500];
 
@@ -55,7 +55,6 @@ export class DetailComponent implements OnInit, OnDestroy{
             {name: 'Number of entries', value: filteredData[0].participations.length },
             {name: 'Total number medals', value: filteredData[0].participations.map(participation => participation.medalsCount).reduce( (acc, curr) => acc + curr) },
             {name: 'Total number of athletes', value: filteredData[0].participations.map(participation => participation.athleteCount).reduce( (acc, curr) => acc + curr)  } ];
-          this.asyncFlag = true;
         } 
       });
   }
