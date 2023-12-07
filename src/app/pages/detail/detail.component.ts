@@ -55,7 +55,6 @@ export class DetailComponent implements OnInit, OnDestroy{
             {name: 'Total number of athletes', value: filteredData[0].participations.map(participation => participation.athleteCount).reduce( (acc, curr) => acc + curr)  } ];
           this.asyncFlag = true;
         } 
-        return 0;
       });
   }
 
